@@ -1,0 +1,79 @@
+[
+    {
+        "name": "Mountain",
+        "price": "0.01",
+        "description": "The basic land that taps for one red mana.",
+        "categories": [
+            "basic",
+            "land",
+            "mountain"
+        ]
+    },
+    {
+        "name": "Sacred Foundry",
+        "price": "19.81",
+        "description": "A Ravnica shockland in Boros (red and white).",
+        "categories": [
+            "land",
+            "mountain",
+            "plains"
+        ]
+    },
+    {
+        "name": "Breya, Etherium Shaper",
+        "price": "7.80",
+        "description": "An artifact-based commander that leans towards control.",
+        "categories": [
+            "legendary",
+            "artifact",
+            "creature",
+            "human"
+        ]
+    },
+    {
+        "name": "Collector's Vault",
+        "price": "0.26",
+        "description": "An artifact that loots and gives you treasures.",
+        "categories": [
+            "artifact"
+        ]
+    },
+    {
+        "name": "Ingenious Artillerist",
+        "price": "0.18",
+        "description": "A creature that pings your opponents when artifacts enter.",
+        "categories": [
+            "creature",
+            "human",
+            "artificer"
+        ]
+    },
+    {
+        "name": "Illusionist's Bracers",
+        "price": "2.71",
+        "description": "An equipment that doubles abilities.",
+        "categories": [
+            "artifact",
+            "equipment"
+        ]
+    },
+    {
+        "name": "Savai Triome",
+        "price": "16.34",
+        "description": "An Ikorian triome in Mardu (red, white, and black).",
+        "categories": [
+            "land",
+            "mountain",
+            "plains",
+            "swamp"
+        ]
+    },
+    {
+        "name": "Sol Ring",
+        "price": "1.30",
+        "description": "A near-universally played mana rock.",
+        "categories": [
+            "artifact"
+        ]
+    }
+]
