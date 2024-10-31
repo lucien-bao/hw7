@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Products page with filters</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    
+    <body>
+        <script>
+            let products;
+
+            // Get the ID of a product object
+            const onlyAlpha = (product) => {
+                return product.name.replaceAll(/[ ,']/g, "");
+            };
+
+            // Make the first letter capital
+            const capitalize = (str) => {
+                return str.slice(0, 1).toUpperCase() + str.slice(1);
+            }
+
+            // Convert a product object to HTML
+            const toHTML = (product) => {
+                return "<div class=\"product\" id=\"" + onlyAlpha(product) + "\">" +
+                       "<p class=\"name\">" + product.name + "</p>" +
+                       "<p class=\"price\">market price: $" + product.price + "</p>" +
+                       "<p class=\"description\">" + product.description + "</p>" +
+                       "<p>Associated tags:</p>" +
+                       "<ul>" + product.categories.map((tag) => 
+                            "<li class=\"category\">" + tag + "</li>").join("") +
+                       "</ul>" +
+                       "</div>";
+            };
+
+            // Update the select element's options
+            const updateTags = () => {
+                let categories = [];
+                for(const product of products) {
+                    categories = categories.concat(product.categories);
+                }
+
+                // Remove duplicates
+                categories = [...new Set(categories)];
+
+                $("select").html(categories.map((tag) =>
+                    "<option value=\"" + tag + "\">" + capitalize(tag) + "</option>"    
+                ).join(""));
+            };
+
+            const filter = () => {
+                const selectedTag = $("select").val();
+
+                $("#filter-results").html(products.filter((product) =>
+                    product.categories.find((tag) => tag === selectedTag))
+                .map((product) =>
+                    product.name)
+                .join("; "));
+            };
+
+            // JSON data retrieval and callbacks
+            $.get("https://lucien-bao.github.io/hw7/products.json",
+                (data) => {
+                    products = data;
+
+                    // Write HTML
+                    $("#content").html($("#content").html() + data.map(toHTML).join(""));
+
+                    updateTags();
+                    $("button").click(filter);
+                }
+            );
+        </script>
+
+        <div id="content">
+            <h1>Breya deck tech showcase</h1>
+            <select></select>
+            <button>Filter</button>
+            <h2>Filter results</h2>
+            <div id="filter-results">No filter applied</div>
+        </div>
+    </body>
+</html>
