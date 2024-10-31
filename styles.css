@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    font-family: "Goudy Bookletter 1911";
+}
+
+h1 {
+    content:"Breya deck tech showcase";
+    display: block;
+    font-size: 2.7rem;
+    padding-left: 20px;
+    margin: 0px;
+}
+
+p {
+    margin: 0px;
+}
+
+ul {
+    margin: 0px;
+}
+
+#content {
+    width: 60%;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.product {
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #e0e0e0;
+}
+
+.name {
+    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: bolder;
+}
+
+.price {
+    display: inline-block;
+    font-family: 'Times New Roman', Times, serif;
+    padding-left: 10px;
+}
+
+.description {
+    display: block;
+}
+
+ul {
+    padding-left: 30px;
+}
+
+.category {
+    display: list-item;
+}

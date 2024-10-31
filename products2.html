@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Products page</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    
+    <body>
+        <script>
+            let products;
+
+            const toHTML = (product) => {
+                return "<div class=\"product\">" +
+                       "<p class=\"name\">" + product.name + "</p>" +
+                       "<p class=\"price\">market price: " + product.price + "</p>" +
+                       "<p class=\"description\">" + product.description + "</p>" +
+                       "<p>Associated tags:</p>" +
+                       "<ul>" + product.categories.map((tag) => 
+                            "<li class=\"category\">" + tag + "</li>").join("") +
+                        "</ul>" +
+                        "</div>";
+            }
+
+            $.get("https://lucien-bao.github.io/hw7/products.json",
+                (data) => {
+                    products = data;
+                    // Add-equals since we want to keep the h1 content
+                    document.getElementById("content").innerHTML += 
+                        data.map(toHTML).join("");
+                }
+            );
+        </script>
+
+        <div id="content">
+            <h1>Breya deck tech showcase</h1>
+        </div>
+    </body>
+</html>
